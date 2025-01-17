@@ -5,6 +5,7 @@ import (
 	"net/http"
 	"time"
 
+	userDTO "github.com/fnxr21/voucher-manager/internal/dto/user"
 	"github.com/fnxr21/voucher-manager/internal/model"
 	repositories "github.com/fnxr21/voucher-manager/internal/repository"
 	"github.com/fnxr21/voucher-manager/pkg/bcrypt"
@@ -13,7 +14,6 @@ import (
 	customLog "github.com/fnxr21/voucher-manager/pkg/log"
 	typeResult "github.com/fnxr21/voucher-manager/pkg/type"
 	validator "github.com/go-playground/validator/v10"
-	userDTO "github.com/fnxr21/voucher-manager/internal/dto/user"
 
 	"github.com/golang-jwt/jwt/v4"
 	"github.com/labstack/echo/v4"
@@ -60,7 +60,7 @@ func (h *handlerUser) Login(c echo.Context) error {
 
 	user, err := h.UserRepository.Login(request.Username)
 	if err != nil {
-		return c.JSON(http.StatusBadRequest, typeResult.ErrorResult{Status: http.StatusBadRequest, Message: "User Not found"})
+		return c.JSON(http.StatusNotFound, typeResult.ErrorResult{Status: http.StatusNotFound, Message: "User Not found"})
 	}
 
 	isValid := bcrypt.CheckPasswordHash(request.Password, user.Password)

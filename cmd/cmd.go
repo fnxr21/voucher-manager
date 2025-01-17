@@ -4,6 +4,7 @@ import (
 	"os"
 
 	"github.com/fnxr21/voucher-manager/database"
+	"github.com/fnxr21/voucher-manager/internal/router"
 	"github.com/fnxr21/voucher-manager/pkg/log"
 	"github.com/fnxr21/voucher-manager/pkg/mysql"
 	"github.com/fnxr21/voucher-manager/pkg/validate"
@@ -24,7 +25,7 @@ func RunServer()  {
 	database.RunMigration()
 
 	//route
-	// router.RouteInit(e.Group("/api/v1"))
+	router.RouteInit(e.Group("/api/v1"))
 
 	
 

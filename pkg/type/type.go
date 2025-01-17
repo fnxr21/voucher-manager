@@ -14,7 +14,7 @@ type (
 
 	ErrorResult struct {
 		// ResponseCode string `json:"code"`
-		Status  int    `json:"code"`
+		Status  int    `json:"code"` //for custome error for now use http
 		Message string `json:"message"`
 	}
 
