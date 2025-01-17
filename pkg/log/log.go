@@ -6,7 +6,7 @@ import (
 	"os"
 	// "strconv"
 
-	// "github.com/fnxr21/item-list/pkg/middleware"
+	// "github.com/fnxr21/voucher-manager/pkg/middleware"
 	"github.com/labstack/echo/v4"
 )
 
